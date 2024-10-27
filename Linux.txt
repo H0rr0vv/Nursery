@@ -1,0 +1,121 @@
+1. Создание и заполнение файлов
+horrow@horrow-VirtualBox:~/GB$ cd FC
+horrow@horrow-VirtualBox:~/GB/FC$ nano pets.txt
+horrow@horrow-VirtualBox:~/GB/FC$ nano pack.txt
+horrow@horrow-VirtualBox:~/GB/FC$ ls
+pack.txt  pets.txt
+horrow@horrow-VirtualBox:~/GB/FC$ cat pets.txt pack.txt > hum_friends.txt
+horrow@horrow-VirtualBox:~/GB/FC$ ls
+hum_friends.txt  pack.txt  pets.txt
+horrow@horrow-VirtualBox:~/GB/FC$ cat hum_friends.txt
+dog
+cat
+humster
+horse
+camel
+donkey
+
+
+2. Создание новой директории и перемещение файла в нее
+horrow@horrow-VirtualBox:~/GB/FC$ mkdir nursery
+horrow@horrow-VirtualBox:~/GB/FC$ ls
+hum_friends.txt  nursery  pack.txt  pets.txt
+horrow@horrow-VirtualBox:~/GB/FC$ mv hum_friends.txt nursery
+horrow@horrow-VirtualBox:~/GB/FC$ ls
+nursery  pack.txt  pets.txt
+horrow@horrow-VirtualBox:~/GB/FC$ cd nursery
+horrow@horrow-VirtualBox:~/GB/FC/nursery$ ls
+hum_friends.txt
+
+
+3. Подключение дополнительно репозитория
+horrow@horrow-VirtualBox:/etc/apt$ sudo apt-add-repository https://dev.mysql.com/downloads/repo/apt
+Репозиторий: 'deb https://dev.mysql.com/downloads/repo/apt jammy main'
+Описание:
+Archive for codename: jammy components: main
+Дополнительные сведения: https://dev.mysql.com/downloads/repo/apt
+Добавление репозитория.
+Нажмите [ENTER] для продолжения или Ctrl-C для отмены.
+Adding deb entry to /etc/apt/sources.list.d/archive_uri-https_dev_mysql_com_downloads_repo_apt-jammy.list
+Adding disabled deb-src entry to /etc/apt/sources.list.d/archive_uri-https_dev_mysql_com_downloads_repo_apt-jammy.list
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+Пол:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]                                                          
+Пол:3 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]                                                                      
+Сущ:4 https://download.docker.com/linux/ubuntu jammy InRelease                                                                                             
+Пол:5 http://ppa.launchpad.net/nginx/stable/ubuntu lucid InRelease [14,3 kB]                                                                               
+Сущ:6 http://ru.archive.ubuntu.com/ubuntu jammy-backports InRelease                                                
+Ошб:5 http://ppa.launchpad.net/nginx/stable/ubuntu lucid InRelease                                             
+  Следующие подписи неверны: 8B3981E7A6852F782CC4951600A6F0A3C300EE8C
+Игн:7 https://dev.mysql.com/downloads/repo/apt jammy InRelease
+Ошб:8 https://dev.mysql.com/downloads/repo/apt jammy Release
+  404  Not Found [IP: 23.59.130.206 443]
+Чтение списков пакетов… Готово
+W: Ошибка GPG: http://ppa.launchpad.net/nginx/stable/ubuntu lucid InRelease: Следующие подписи неверны: 8B3981E7A6852F782CC4951600A6F0A3C300EE8C
+E: Репозиторий «http://ppa.launchpad.net/nginx/stable/ubuntu lucid InRelease» не подписан.
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+E: Репозиторий «https://dev.mysql.com/downloads/repo/apt jammy Release» не содержит файла Release.
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+horrow@horrow-VirtualBox:/etc/apt$ apt update
+Чтение списков пакетов… Готово
+E: Не удалось открыть файл блокировки /var/lib/apt/lists/lock - open (13: Отказано в доступе)
+E: Невозможно заблокировать каталог /var/lib/apt/lists/
+W: Проблема при удалении файла /var/cache/apt/pkgcache.bin - RemoveCaches (13: Отказано в доступе)
+W: Проблема при удалении файла /var/cache/apt/srcpkgcache.bin - RemoveCaches (13: Отказано в доступе)
+horrow@horrow-VirtualBox:/etc/apt$ sudo apt update
+Сущ:1 https://download.docker.com/linux/ubuntu jammy InRelease
+Сущ:2 http://ru.archive.ubuntu.com/ubuntu jammy InRelease                                                                                                                                                  
+Сущ:3 http://security.ubuntu.com/ubuntu jammy-security InRelease                                                                                                  
+Сущ:4 http://ru.archive.ubuntu.com/ubuntu jammy-updates InRelease                                                                                                 
+Сущ:6 http://ru.archive.ubuntu.com/ubuntu jammy-backports InRelease                                                       
+Пол:7 http://ppa.launchpad.net/nginx/stable/ubuntu lucid InRelease [14,3 kB]                                              
+Игн:5 https://dev.mysql.com/downloads/repo/apt jammy InRelease                    
+Ошб:7 http://ppa.launchpad.net/nginx/stable/ubuntu lucid InRelease          
+  Следующие подписи неверны: 8B3981E7A6852F782CC4951600A6F0A3C300EE8C
+Ошб:8 https://dev.mysql.com/downloads/repo/apt jammy Release
+  404  Not Found [IP: 23.59.130.206 443]
+Чтение списков пакетов… Готово            
+W: Ошибка GPG: http://ppa.launchpad.net/nginx/stable/ubuntu lucid InRelease: Следующие подписи неверны: 8B3981E7A6852F782CC4951600A6F0A3C300EE8C
+E: Репозиторий «http://ppa.launchpad.net/nginx/stable/ubuntu lucid InRelease» не подписан.
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+E: Репозиторий «https://dev.mysql.com/downloads/repo/apt jammy Release» не содержит файла Release.
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+horrow@horrow-VirtualBox:/etc/apt$ sudo apt install mysql-server
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово         
+Следующие пакеты устанавливались автоматически и больше не требуются:
+  libwpe-1.0-1 libwpebackend-fdo-1.0-1 linux-headers-6.2.0-39-generic linux-hwe-6.2-headers-6.2.0-39 linux-image-6.2.0-39-generic linux-modules-6.2.0-39-generic linux-modules-extra-6.2.0-39-generic
+Для их удаления используйте «sudo apt autoremove».
+Следующие НОВЫЕ пакеты будут установлены:
+  mysql-server
+Обновлено 0 пакетов, установлено 1 новых пакетов, для удаления отмечено 0 пакетов, и 3 пакетов не обновлено.
+Необходимо скачать 9 462 B архивов.
+После данной операции объём занятого дискового пространства возрастёт на 35,8 kB.
+Пол:1 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 mysql-server all 8.0.37-0ubuntu0.22.04.3 [9 462 B]
+Получено 9 462 B за 1с (15,7 kB/s)        
+Выбор ранее не выбранного пакета mysql-server.
+(Чтение базы данных … на данный момент установлено 253163 файла и каталога.)
+Подготовка к распаковке …/mysql-server_8.0.37-0ubuntu0.22.04.3_all.deb …
+Распаковывается mysql-server (8.0.37-0ubuntu0.22.04.3) …
+Настраивается пакет mysql-server (8.0.37-0ubuntu0.22.04.3) …
+
+
+4. Установка и удаление deb пакета
+horrow@horrow-VirtualBox:/etc/apt$ sudo dpkg -r mysql-server
+(Чтение базы данных … на данный момент установлено 253165 файлов и каталогов.)
+Удаляется mysql-server (8.0.37-0ubuntu0.22.04.3) …
+horrow@horrow-VirtualBox:/etc/apt$ sudo apt download mysql-server
+Пол:1 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 mysql-server all 8.0.37-0ubuntu0.22.04.3 [9 462 B]
+Получено 9 462 B за 1с (15,7 kB/s)           
+W: Загрузка выполняется от лица суперпользователя без ограничений песочницы, так как файл «/etc/apt/mysql-server_8.0.37-0ubuntu0.22.04.3_all.deb» недоступен для пользователя «_apt». - pkgAcquire::Run (13: Отказано в доступе)
+horrow@horrow-VirtualBox:/etc/apt$ sudo dpkg -i mysql-server_8.0.37-0ubuntu0.22.04.3_all.deb
+Выбор ранее не выбранного пакета mysql-server.
+(Чтение базы данных … на данный момент установлено 253163 файла и каталога.)
+Подготовка к распаковке mysql-server_8.0.37-0ubuntu0.22.04.3_all.deb …
+Распаковывается mysql-server (8.0.37-0ubuntu0.22.04.3) …
+Настраивается пакет mysql-server (8.0.37-0ubuntu0.22.04.3) …
+
